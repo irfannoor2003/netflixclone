@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Netflix Pakistan - Watch TV Shows Online, Watch Movies Online</title>
+    <script
+      src="https://kit.fontawesome.com/4a393bce8c.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+      body {
+        background: #000;
+      }
+      .hero {
+        background-image: url(assets/images/bg.jpg);
+        height: 100vh;
+        background-position: center;
+        background-size: cover;
+      }
+      .hero::before {
+        content: " ";
+        position: absolute;
+        top: 0px;
+        background-color: black;
+        height: 100vh;
+        width: 100%;
+        z-index: 1;
+        opacity: 0.8;
+      }
+      .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: 800px;
+        margin: 0px auto;
+        position: relative;
+        padding: 0px 2rem;
+        top: 0;
+        z-index: 100;
+      }
+      .image img {
+        width: 120px;
+      }
+      .btn-small {
+        padding: 5px 12px;
+        font-size: 13px;
+        border-radius: 6px;
+        font-weight: bold;
+        color: white;
+        background-color: #e50914;
+      }
+      .content {
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        height: 85vh;
+        gap: 20px;
+      }
+      .content > :nth-child(1) {
+        font-size: 40px;
+        font-weight: bolder;
+        text-align: center;
+      }
+      .content :nth-child(2) {
+        font-size: 18px;
+        text-align: center;
+      }
+      .content :nth-child(3) {
+        font-size: 20px;
+        text-align: center;
+      }
+      .inputs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 10px;
+      }
+      .inputs input {
+        background-color: #171616;
+        font-size: 15px;
+        border: 0.5px solid #fff;
+        padding: 12px 10px;
+        border-radius: 5px;
+        color: white;
+        transition: all 0.5s ease-in-out;
+        width: 20em;
+      }
+      .inputs input:hover {
+        outline: 2px solid white;
+      }
+      .btn-main {
+        background-color: #e50914;
+        color: white;
+        font-size: 12px;
+        padding: 10px 25px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .sepration {
+        height: 5px;
+        background-color: #232323;
+      }
+      .sectionone {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 70vw;
+        flex-wrap: wrap;
+        margin: auto;
+        color: white;
+      }
+      .secImg img {
+        width: 30vw;
+      }
+      .first {
+        display: flex;
+        justify-content: center;
+        max-width: 70vw;
+        margin: auto;
+        color: white;
+        align-items: center;
+      }
+      .second {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+      @media only screen and (max-width: 600px) {
+        .first {
+          flex-wrap: wrap;
+          text-align: center;
+        }
+        .second {
+          flex-wrap: wrap;
+        }
+        .btn-main {
+          margin-top: 30px;
+        }
+      }
+      .secImg {
+        position: relative;
+      }
+
+      .secImg img {
+        width: 405px;
+        position: relative;
+        z-index: 10;
+      }
+
+      .secImg video {
+        position: absolute;
+        top: 62px;
+        right: 0;
+        width: 355px;
+      }
+      section.first > div {
+        display: flex;
+        flex-direction: column;
+        padding: 34px 0;
+      }
+
+      section.first > div :nth-child(1) {
+        font-size: 48px;
+        font-weight: bolder;
+      }
+
+      section.first > div :nth-child(2) {
+        font-size: 24px;
+      }
+      .footersec h2,
+      h3 {
+        color: white;
+        text-align: center;
+        margin: 20px 0px;
+      }
+      .footersec h2 {
+        font-size: 52px;
+        font-weight: bold;
+      }
+      .footersec h3 {
+        font-size: 23px;
+        font-weight: bold;
+      }
+      .question {
+        height: 4.2rem;
+        background: #2d2d2d;
+        margin: 14px auto;
+        width: 70vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 34px;
+        color: #fff;
+        font-size: 24px;
+      }
+      @media only screen and (max-width: 600px) {
+        .footersec h2 {
+          font-size: 35px;
+          text-align: center;
+          line-height: 3rem;
+        }
+        .footersec h3 {
+          font-size: 15px;
+          text-align: center;
+          padding: 0px 20px;
+        }
+        .question {
+          width: 60vw;
+          font-size: 15px;
+          margin: 14px auto;
+          padding: 0px 14px;
+        }
+        .question div h4 {
+          font-size: 10px;
+        }
+      }
+      .gridsection {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 25px;
+        color: #b3b3b3;
+        width: 65vw;
+        font-size: 16px;
+        margin: 50px auto;
+      }
+      
+      .gridsection p {
+        text-decoration: underline;
+      }
+      .full {
+        grid-column-start: 1;
+        grid-column-end: 5;
+        font-size: 20px;
+      }
+      .gridbtn {
+        grid-column-start: 1;
+        background-color: #0f0f0f;
+        border: 1px solid #fff;
+        color: #fff;
+        border-radius: 5px;
+        /* grid-column-end:5 ; */
+        font-weight: bold;
+        padding: 8px 15px;
+      }
+      .netflixtext {
+        grid-column-start: 1;
+        text-decoration: none;
+      }
+      .footer-item{
+        padding: 10px 0px;
+      }
+      @media only screen and (max-width: 600px) {
+        .footer-item {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+}
+.gridsection {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero">
+      <div class="navbar">
+        <div class="image">
+          <img src="assets/images/logo.png" alt="" />
+        </div>
+        <div class="buttons">
+          <button class="btn btn-small">Sign In</button>
+        </div>
+        <div class="content">
+          <span> Unlimited movies, TV shows, and more </span>
+          <span> Watch anywhere. Cancel anytime. </span>
+          <span>
+            Ready to watch? Enter your email to create or restart your
+            membership.
+          </span>
+          <div class="inputs">
+            <input type="email" placeholder="Email address " />
+            <button class="btn-main">Get Started &gt;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sepration"></div>
+    <section class="first">
+      <div>
+        <span>Enjoy on your TV</span>
+        <span
+          >Watch on smart TVs, PlayStation, Xbox, span Chromecast, Apple TV,
+          Blu-ray players and more.</span
+        >
+      </div>
+
+      <div class="secImg">
+        <img src="assets/images/tv.png" alt="" />
+        <video src="assets/videos/video1.m4v" autoplay loop muted></video>
+      </div>
+    </section>
+    <div class="sepration"></div>
+    <section class="first second">
+      <div>
+        <span>Download your shows to watch offline</span>
+        <span
+          >Save your favorites easily and always have something to watch.</span
+        >
+      </div>
+
+      <div class="secImg">
+        <img src="assets/images/mobile-0819.jpg" alt="" />
+      </div>
+    </section>
+    <div class="sepration"></div>
+    <section class="first">
+      <div>
+        <span>Watch everywhere</span>
+        <span
+          >Stream unlimited movies and TV shows on your phone, tablet, laptop,
+          and TV.</span
+        >
+      </div>
+
+      <div class="secImg">
+        <img
+          src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png"
+          alt=""
+        />
+        <video src="assets/videos/video2.m4v" autoplay loop muted></video>
+      </div>
+    </section>
+    <div class="sepration"></div>
+    <section class="first second">
+      <div>
+        <span>Create profiles for kids</span>
+        <span
+          >Send kids on adventures with their favorite characters in a space
+          made just for them—free with your membership.</span
+        >
+      </div>
+
+      <div class="secImg">
+        <img src="assets/images/kids.png" alt="" />
+      </div>
+    </section>
+    <div class="sepration"></div>
+    <section class="footersec">
+      <h2>Frequently Asked Questions</h2>
+      <div class="question">
+        <h4>What Is Netlix?</h4>
+        <i class="fa-sharp fa-solid fa-xmark"></i>
+      </div>
+      <div class="question">
+        <h4>How much does Netflix cost?</h4>
+        <i class="fa-sharp fa-solid fa-xmark"></i>
+      </div>
+      <div class="question">
+        <h4>Where can I watch?</h4>
+        <i class="fa-sharp fa-solid fa-xmark"></i>
+      </div>
+      <div class="question">
+        <h4>How do I cancel?</h4>
+        <i class="fa-sharp fa-solid fa-xmark"></i>
+      </div>
+      <div class="question">
+        <h4>What can I watch on Netflix?</h4>
+        <i class="fa-sharp fa-solid fa-xmark"></i>
+      </div>
+      <div class="question">
+        <h4>Is Netflix good for kids?</h4>
+        <i class="fa-sharp fa-solid fa-xmark"></i>
+      </div>
+
+      <h3>
+        Ready to watch? Enter your email to create or restart your membership.
+      </h3>
+      <div class="inputs">
+        <input type="email" placeholder="Email address " />
+        <button class="btn-main">Get Started &gt;</button>
+      </div>
+    </section>
+    <div class="sepration"></div>
+    <section class="gridsection">
+      <h2 class="full">Questions? Contact us.</h2>
+      <div class="footer-item">
+        <p>FAQ</p>
+        <p>Invertor Relations</p>
+        <p>Privacy</p>
+        <p>Speed Test</p>
+      </div>
+      <div class="footer-item">
+        <p>FAQ</p>
+        <p>Invertor Relations</p>
+        <p>Privacy</p>
+        <p>Speed Test</p>
+      </div>
+      <div class="footer-item">
+        <p>FAQ</p>
+        <p>Invertor Relations</p>
+        <p>Privacy</p>
+        <p>Speed Test</p>
+      </div>
+      <div class="footer-item">
+        <p>FAQ</p>
+        <p>Invertor Relations</p>
+        <p>Privacy</p>
+        <p>Speed Test</p>
+      </div>
+
+      <button class="gridbtn">English</button>
+      <p class="netflixtext">Netflix Pakistan</p>
+    </section>
+  </body>
+</html>
